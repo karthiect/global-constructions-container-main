@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: #ef7e39;
+  --color-navy: #1C2E57;
+  --color-navy-light: #2a4480;
+
+  --radius-card: 1.5rem;
+  --color-industrial-gray: #2d2d2d;
+  --color-industrial-orange: #f27d26;
+  --color-industrial-sand: #e4e3e0;
+  --color-industrial-concrete: #d1d1d1;
+
+  --background-gold-gradient: linear-gradient(to right, #ef7e39, #bf0908);
+}
+
+
+@layer base {
+  body {
+    @apply bg-white text-navy font-sans antialiased;
+  }
+}
+
+@utility bg-gold-gradient {
+  background: var(--background-gold-gradient);
+}
+
+@utility bg-navy-gradient {
+  @apply bg-[#1C2E57];
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility btn-gold {
+  background: var(--background-gold-gradient);
+  @apply text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 uppercase tracking-wider text-sm;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(239, 126, 57, 0.4);
+  }
+}
+
+@utility carousel-arrow {
+  @apply relative w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center text-navy shadow-xl transition-all z-20 overflow-hidden border border-navy/10 cursor-pointer;
+
+  &::before {
+    content: '';
+    @apply absolute inset-0 bg-gold-gradient opacity-0 transition-opacity duration-300 rounded-full;
+  }
+
+  &:hover {
+    @apply text-white border-transparent scale-105;
+    box-shadow: 0 10px 25px -5px rgba(239, 126, 57, 0.4);
+
+    &::before {
+      @apply opacity-100;
+    }
+  }
+
+  & svg {
+    @apply relative z-10 transition-colors;
+  }
+}
+
+@layer components {
+  .grid-pattern {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .text-navy {
+    color: #1C2E57;
+  }
+
+  .card-rounded {
+    @apply rounded-card overflow-hidden;
+  }
+
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+
+  /* Increased padding to create wider gutters for arrows */
+  .carousel-padding {
+    @apply px-10 sm:px-16 md:px-24;
+  }
+
+  /* React Slick Styles - ensuring proper clipping and equal height */
+  .slick-list {
+    @apply -mx-2;
+    overflow: hidden !important;
+  }
+
+  .slick-track {
+    display: flex !important;
+  }
+
+  .slick-slide {
+    height: auto !important;
+
+    &>div {
+      @apply h-full px-2;
+    }
+  }
+
+  .slick-dots.testimonial-dots {
+    @apply bottom-[-4rem] flex justify-center items-center gap-1;
+  }
+
+  .slick-dots.testimonial-dots li {
+    @apply m-0 w-auto h-auto;
+  }
+
+  .slick-dots.testimonial-dots li.slick-active .slick-dot-custom {
+    background: var(--background-gold-gradient);
+    @apply w-8;
+  }
+
+  .slick-dots.testimonial-dots li button {
+    @apply hidden;
+  }
+}
+
+.notFound {
+  text-align: center;
+  padding: clamp(25px, 5%, 150px) 0;
+  color: var(--color-black);
+}
+
+.notFound h2 {
+  margin-bottom: clamp(10px, 2%, 30px);
+  color: var(--color-black);
+}
