@@ -137,7 +137,7 @@ export const Footer = () => {
             className="flex items-center gap-2"
           >
             <span className="text-xs normal-case tracking-wide font-medium text-white/50">Powered by</span>
-            <img src={ecsLogo} alt="Exaltt Core Solutions" className="h-12 w-32 sm:h-14 sm:w-40 object-cover object-center shrink-0" />
+            <img src={ecsLogo} alt="Exaltt Core Solutions" className="h-9 w-24 sm:h-10 sm:w-28 object-cover object-center shrink-0" />
           </a>
         </div>
       </div>
