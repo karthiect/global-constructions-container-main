@@ -134,10 +134,10 @@ export const Footer = () => {
             href="https://exalttcoresolutions.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2"
+            className="flex items-center gap-1"
           >
             <span className="text-xs normal-case tracking-wide font-medium text-white/50">Powered by</span>
-            <img src={ecsLogo} alt="Exaltt Core Solutions" className="h-9 w-24 sm:h-10 sm:w-28 object-cover object-center shrink-0" />
+            <img src={ecsLogo} alt="Exaltt Core Solutions" className="h-8 w-20 object-cover object-center shrink-0" />
           </a>
         </div>
       </div>
